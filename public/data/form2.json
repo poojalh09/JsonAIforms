@@ -1,0 +1,48 @@
+{
+    "title": "User Profile Form",
+    "fields": [
+        {
+            "name": "Patient ID",
+            "label": "Patient ID",
+            "type": "text",
+            "required": true
+          },
+      {
+        "name": "Patient Name",
+        "label": "Full Name",
+        "type": "text",
+        "required": true
+        
+      },
+      
+      
+      {
+        "name": "dob",
+        "label": "Date of Birth",
+        "type": "date",
+        "required": true
+      },
+      {
+        "name": "gender",
+        "label": "Gender",
+        "type": "radio",
+        "options": ["Male", "Female", "Other"],
+        "required": true
+      },
+      {
+        "name": "Medication",
+        "label": "Medication",
+        "type": "select",
+        "options": ["Humalog", "Prozac", "Zyprexa", "Zepbound", "Basaglar", "Other"],
+        "required": true
+      },
+      
+      {
+        "name": "Side Effects",
+        "label": "Side Effects",
+        "type": "textarea",
+        "required": false
+      }
+      
+    ]
+  }

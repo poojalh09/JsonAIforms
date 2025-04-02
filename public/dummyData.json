@@ -1,0 +1,9 @@
+{
+    "records": [
+      { "id": 1, "name": "John Doe", "email": "john@example.com", "dob": "1995-06-15", "isActive": true },
+      { "id": 2, "name": "Jane Smith", "email": "jane@example.com", "dob": "1998-04-21", "isActive": false },
+      { "id": 3, "name": "Alice Johnson", "email": "alice@example.com", "dob": "1992-09-10", "isActive": true },
+      { "id": 4, "name": "Bob Brown", "email": "bob@example.com", "dob": "2000-12-05", "isActive": false },
+      { "id": 5, "name": "Charlie White", "email": "charlie@example.com", "dob": "1990-07-19", "isActive": true }
+    ]
+  }

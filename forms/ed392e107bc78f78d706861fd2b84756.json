@@ -1,0 +1,130 @@
+{
+  "title": "Research Study Participant Form",
+  "layout": "vertical",
+  "fields": [
+    {
+      "name": "participantId",
+      "label": "Participant ID",
+      "type": "text",
+      "placeholder": "Enter participant ID",
+      "required": true,
+      "validation": {
+        "required": true,
+        "pattern": "^[A-Za-z0-9-]+$",
+        "min": "5",
+        "max": "20"
+      }
+    },
+    {
+      "name": "dateOfBirth",
+      "label": "Date of Birth",
+      "type": "text",
+      "placeholder": "YYYY-MM-DD",
+      "required": true,
+      "validation": {
+        "required": true,
+        "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
+      }
+    },
+    {
+      "name": "gender",
+      "label": "Gender",
+      "type": "select",
+      "options": [
+        "Male",
+        "Female",
+        "Other",
+        "Prefer not to say"
+      ],
+      "required": true,
+      "validation": {
+        "required": true
+      }
+    },
+    {
+      "name": "ethnicity",
+      "label": "Ethnicity",
+      "type": "select",
+      "options": [
+        "Hispanic or Latino",
+        "Not Hispanic or Latino",
+        "Prefer not to say"
+      ],
+      "required": true,
+      "validation": {
+        "required": true
+      }
+    },
+    {
+      "name": "race",
+      "label": "Race",
+      "type": "checkbox",
+      "options": [
+        "American Indian or Alaska Native",
+        "Asian",
+        "Black or African American",
+        "Native Hawaiian or Other Pacific Islander",
+        "White",
+        "Other",
+        "Prefer not to say"
+      ],
+      "required": true,
+      "validation": {
+        "required": true
+      }
+    },
+    {
+      "name": "educationLevel",
+      "label": "Highest Education Level",
+      "type": "select",
+      "options": [
+        "Less than high school",
+        "High school graduate",
+        "Some college",
+        "Bachelor's degree",
+        "Master's degree",
+        "Doctorate",
+        "Prefer not to say"
+      ],
+      "required": true,
+      "validation": {
+        "required": true
+      }
+    },
+    {
+      "name": "studySpecificQuestion1",
+      "label": "How many hours per week do you spend exercising?",
+      "type": "slider",
+      "min": "0",
+      "max": "20",
+      "required": true,
+      "validation": {
+        "required": true,
+        "min": "0",
+        "max": "20"
+      }
+    },
+    {
+      "name": "studySpecificQuestion2",
+      "label": "Please describe your typical diet in a few sentences.",
+      "type": "textarea",
+      "placeholder": "Describe your typical diet...",
+      "required": false,
+      "validation": {
+        "max": "500"
+      }
+    },
+    {
+      "name": "consentAgreement",
+      "label": "Do you agree to participate in this study?",
+      "type": "switch",
+      "required": true,
+      "validation": {
+        "required": true
+      }
+    }
+  ],
+  "id": "ed392e107bc78f78d706861fd2b84756",
+  "prompt": "Build a research study participant form with demographic questions and study-specific fields",
+  "createdAt": "2025-04-02T19:07:00.307Z"
+}

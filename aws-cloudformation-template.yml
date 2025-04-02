@@ -1,0 +1,151 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Description: 'AWS CloudFormation template for AI Integrated Forms Next.js Application'
+
+Parameters:
+  ApplicationName:
+    Type: String
+    Default: ai-integrated-forms
+    Description: Name of the Elastic Beanstalk application
+
+  EnvironmentName:
+    Type: String
+    Default: production
+    Description: Name of the Elastic Beanstalk environment
+
+  NodeVersion:
+    Type: String
+    Default: 18.18.0
+    Description: Node.js version for the application
+
+  InstanceType:
+    Type: String
+    Default: t3.small
+    Description: EC2 instance type for the application servers
+    AllowedValues:
+      - t3.micro
+      - t3.small
+      - t3.medium
+
+  VPCId:
+    Type: AWS::EC2::VPC::Id
+    Description: VPC to deploy the application
+
+  SubnetIds:
+    Type: List<AWS::EC2::Subnet::Id>
+    Description: Subnets for the application servers
+
+Resources:
+  # S3 Bucket for storing form data
+  FormDataBucket:
+    Type: AWS::S3::Bucket
+    Properties:
+      BucketName: !Sub "${ApplicationName}-form-data"
+      VersioningConfiguration:
+        Status: Enabled
+      PublicAccessBlockConfiguration:
+        BlockPublicAcls: true
+        BlockPublicPolicyPublicAcls: true
+        IgnorePublicAcls: true
+        RestrictPublicBuckets: true
+
+  # IAM Role for Elastic Beanstalk EC2 instances
+  EBInstanceRole:
+    Type: AWS::IAM::Role
+    Properties:
+      AssumeRolePolicyDocument:
+        Version: '2012-10-17'
+        Statement:
+          - Effect: Allow
+            Principal:
+              Service: ec2.amazonaws.com
+            Action: sts:AssumeRole
+      ManagedPolicyArns:
+        - arn:aws:iam::aws:policy/AWSElasticBeanstalkWebTier
+        - arn:aws:iam::aws:policy/AWSElasticBeanstalkWorkerTier
+      Policies:
+        - PolicyName: FormDataBucketAccess
+          PolicyDocument:
+            Version: '2012-10-17'
+            Statement:
+              - Effect: Allow
+                Action:
+                  - s3:PutObject
+                  - s3:GetObject
+                  - s3:ListBucket
+                Resource:
+                  - !Sub "${FormDataBucket.Arn}"
+                  - !Sub "${FormDataBucket.Arn}/*"
+
+  # Instance Profile for EC2 instances
+  EBInstanceProfile:
+    Type: AWS::IAM::InstanceProfile
+    Properties:
+      Roles:
+        - !Ref EBInstanceRole
+
+  # Elastic Beanstalk Application
+  ElasticBeanstalkApplication:
+    Type: AWS::ElasticBeanstalk::Application
+    Properties:
+      ApplicationName: !Ref ApplicationName
+      Description: AI Integrated Forms Next.js Application
+
+  # Elastic Beanstalk Environment
+  ElasticBeanstalkEnvironment:
+    Type: AWS::ElasticBeanstalk::Environment
+    Properties:
+      ApplicationName: !Ref ElasticBeanstalkApplication
+      EnvironmentName: !Ref EnvironmentName
+      SolutionStackName: 64bit Amazon Linux 2 v6.1.3 running Node.js 18
+      OptionSettings:
+        - Namespace: aws:autoscaling:launchconfiguration
+          OptionName: InstanceType
+          Value: !Ref InstanceType
+        
+        - Namespace: aws:autoscaling:launchconfiguration
+          OptionName: IamInstanceProfile
+          Value: !Ref EBInstanceProfile
+        
+        - Namespace: aws:elasticbeanstalk:environment
+          OptionName: EnvironmentType
+          Value: LoadBalanced
+        
+        - Namespace: aws:elasticbeanstalk:application:environment
+          OptionName: NODE_ENV
+          Value: production
+        
+        - Namespace: aws:elasticbeanstalk:container:nodejs
+          OptionName: NodeVersion
+          Value: !Ref NodeVersion
+        
+        - Namespace: aws:ec2:vpc
+          OptionName: VPCId
+          Value: !Ref VPCId
+        
+        - Namespace: aws:ec2:vpc
+          OptionName: Subnets
+          Value: !Join [",", !Ref SubnetIds]
+        
+        - Namespace: aws:elasticbeanstalk:environment
+          OptionName: LoadBalancerType
+          Value: application
+        
+        - Namespace: aws:elbv2:loadbalancer
+          OptionName: SharedLoadBalancer
+          Value: false
+
+  # CloudWatch Logs configuration
+  CloudWatchLogsLogGroup:
+    Type: AWS::Logs::LogGroup
+    Properties:
+      LogGroupName: !Sub "/aws/elasticbeanstalk/${ApplicationName}/${EnvironmentName}"
+      RetentionInDays: 30
+
+Outputs:
+  ApplicationURL:
+    Description: URL of the Elastic Beanstalk environment
+    Value: !GetAtt ElasticBeanstalkEnvironment.EndpointURL
+
+  FormDataBucketName:
+    Description: S3 Bucket for storing form data
+    Value: !Ref FormDataBucket

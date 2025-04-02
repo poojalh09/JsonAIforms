@@ -1,0 +1,94 @@
+{
+  "title": "Amusement Park Ride Creation",
+  "layout": "vertical",
+  "fields": [
+    {
+      "name": "rideName",
+      "label": "Ride Name",
+      "type": "text",
+      "placeholder": "Enter ride name",
+      "required": true,
+      "validation": {
+        "required": true,
+        "pattern": "^[a-zA-Z0-9 ]+$",
+        "min": "3",
+        "max": "50"
+      }
+    },
+    {
+      "name": "rideType",
+      "label": "Ride Type",
+      "type": "select",
+      "options": [
+        "Roller Coaster",
+        "Water Ride",
+        "Spinning Ride",
+        "Kiddie Ride",
+        "Other"
+      ],
+      "required": true,
+      "validation": {
+        "required": true
+      }
+    },
+    {
+      "name": "minimumHeight",
+      "label": "Minimum Height (inches)",
+      "type": "slider",
+      "min": "36",
+      "max": "84",
+      "required": false,
+      "validation": {
+        "min": "36",
+        "max": "84"
+      }
+    },
+    {
+      "name": "maximumRiders",
+      "label": "Maximum Riders Per Vehicle",
+      "type": "text",
+      "placeholder": "Enter max riders",
+      "required": true,
+      "validation": {
+        "required": true,
+        "pattern": "^[0-9]+$",
+        "min": "1",
+        "max": "100"
+      }
+    },
+    {
+      "name": "rideDescription",
+      "label": "Ride Description",
+      "type": "textarea",
+      "placeholder": "Enter a description of the ride",
+      "required": true,
+      "validation": {
+        "required": true,
+        "min": "10",
+        "max": "500"
+      }
+    },
+    {
+      "name": "isOperational",
+      "label": "Operational?",
+      "type": "switch",
+      "required": false,
+      "validation": {
+        "required": false
+      }
+    },
+    {
+      "name": "tags",
+      "label": "Tags (e.g., thrilling, family-friendly)",
+      "type": "tags",
+      "placeholder": "Add tags to describe the ride",
+      "required": false,
+      "validation": {
+        "required": false
+      }
+    }
+  ],
+  "id": "88aba01eda5a8e0e63f27fcb75d2fb92",
+  "prompt": "create form for amusement park rides",
+  "createdAt": "2025-04-02T14:27:46.625Z"
+}

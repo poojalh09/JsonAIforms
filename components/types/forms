@@ -1,0 +1,12 @@
+export interface FormField {
+  label: string; // Display label for the form field
+  name: string; // Unique identifier for the field
+  type: string; // Type of field (text, select, checkbox, etc.)
+  required: boolean; // Indicates if the field is mandatory
+  placeholder?: string; // Placeholder text (if applicable)
+  options?: string[]; // Options for select, radio, or checkbox fields
+  position?: string; // Layout positioning (e.g., col-span-1, col-span-2)
+  validation?: string; // Regex or validation pattern
+  defaultValue?: string | number | boolean; // Default value for the field
+  description?: string; // Additional description or tooltip for the field
+}

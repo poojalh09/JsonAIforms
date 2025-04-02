@@ -1,0 +1,140 @@
+{
+  "title": "Clinical Trial Enrollment Form",
+  "layout": "vertical",
+  "fields": [
+    {
+      "name": "studyId",
+      "label": "Study ID",
+      "type": "text",
+      "placeholder": "Enter Study ID",
+      "required": true,
+      "validation": {
+        "required": true,
+        "pattern": "^[A-Za-z0-9-]+$"
+      }
+    },
+    {
+      "name": "participantName",
+      "label": "Full Name",
+      "type": "text",
+      "placeholder": "Enter your full name",
+      "required": true,
+      "validation": {
+        "required": true,
+        "pattern": "^[A-Za-z\\s]+$"
+      }
+    },
+    {
+      "name": "dateOfBirth",
+      "label": "Date of Birth",
+      "type": "text",
+      "placeholder": "YYYY-MM-DD",
+      "required": true,
+      "validation": {
+        "required": true,
+        "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
+      }
+    },
+    {
+      "name": "email",
+      "label": "Email Address",
+      "type": "text",
+      "placeholder": "Enter your email address",
+      "required": true,
+      "validation": {
+        "required": true,
+        "pattern": "^[\\w-\\.]+@([\\w-]+\\.)+[\\w-]{2,4}$"
+      }
+    },
+    {
+      "name": "phoneNumber",
+      "label": "Phone Number",
+      "type": "text",
+      "placeholder": "Enter your phone number",
+      "required": true,
+      "validation": {
+        "required": true,
+        "pattern": "^\\d{10}$"
+      }
+    },
+    {
+      "name": "address",
+      "label": "Address",
+      "type": "textarea",
+      "placeholder": "Enter your full address",
+      "required": true,
+      "validation": {
+        "required": true
+      }
+    },
+    {
+      "name": "consentAgreement",
+      "label": "Informed Consent Agreement",
+      "type": "textarea",
+      "required": true,
+      "validation": {
+        "required": true
+      }
+    },
+    {
+      "name": "consentAcceptance",
+      "label": "I have read and understand the informed consent agreement and agree to participate in this clinical trial.",
+      "type": "checkbox",
+      "required": true,
+      "validation": {
+        "required": true
+      },
+      "options": []
+    },
+    {
+      "name": "medicalHistory",
+      "label": "Do you have a history of heart disease?",
+      "type": "radio",
+      "options": [
+        "Yes",
+        "No"
+      ],
+      "required": true,
+      "validation": {
+        "required": true
+      }
+    },
+    {
+      "name": "medications",
+      "label": "List any current medications",
+      "type": "textarea",
+      "placeholder": "List all medications and dosages",
+      "required": false,
+      "validation": {
+        "required": false
+      }
+    },
+    {
+      "name": "eligible",
+      "label": "Are you between the ages of 18 and 65?",
+      "type": "radio",
+      "options": [
+        "Yes",
+        "No"
+      ],
+      "required": true,
+      "validation": {
+        "required": true
+      }
+    },
+    {
+      "name": "willingToComply",
+      "label": "Are you willing to comply with all study procedures?",
+      "type": "radio",
+      "options": [
+        "Yes",
+        "No"
+      ],
+      "required": true,
+      "validation": {
+        "required": true
+      }
+    }
+  ],
+  "createdAt": "2025-04-02T14:16:48.370Z"
+}
