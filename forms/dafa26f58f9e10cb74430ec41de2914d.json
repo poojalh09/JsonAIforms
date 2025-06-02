@@ -1,0 +1,107 @@
+{
+  "title": "Good Boyfriend Assessment Form",
+  "layout": "vertical",
+  "fields": [
+    {
+      "name": "communicationSkills",
+      "label": "Communication Skills",
+      "type": "textarea",
+      "placeholder": "Describe how well he communicates his thoughts and feelings.",
+      "required": true,
+      "validation": {
+        "required": true,
+        "min": "50"
+      }
+    },
+    {
+      "name": "listeningAbility",
+      "label": "Listening Ability",
+      "type": "radio",
+      "required": true,
+      "options": [
+        "Excellent - Always listens attentively",
+        "Good - Usually listens well",
+        "Fair - Sometimes struggles to listen",
+        "Poor - Rarely listens"
+      ],
+      "validation": {
+        "required": true
+      }
+    },
+    {
+      "name": "emotionalSupport",
+      "label": "Emotional Support",
+      "type": "textarea",
+      "placeholder": "Describe how supportive he is during difficult times.",
+      "required": true,
+      "validation": {
+        "required": true,
+        "min": "50"
+      }
+    },
+    {
+      "name": "respectfulness",
+      "label": "Respectfulness",
+      "type": "radio",
+      "required": true,
+      "options": [
+        "Always respectful",
+        "Usually respectful",
+        "Sometimes disrespectful",
+        "Rarely respectful"
+      ],
+      "validation": {
+        "required": true
+      }
+    },
+    {
+      "name": "trustworthiness",
+      "label": "Trustworthiness",
+      "type": "radio",
+      "required": true,
+      "options": [
+        "Completely trustworthy",
+        "Mostly trustworthy",
+        "Somewhat trustworthy",
+        "Not trustworthy"
+      ],
+      "validation": {
+        "required": true
+      }
+    },
+    {
+      "name": "sharedInterests",
+      "label": "Shared Interests",
+      "type": "tags",
+      "placeholder": "List shared hobbies and interests.",
+      "required": false,
+      "validation": {
+        "required": false
+      }
+    },
+    {
+      "name": "futureGoalsAlignment",
+      "label": "Alignment of Future Goals",
+      "type": "textarea",
+      "placeholder": "Describe how well your future goals align.",
+      "required": false,
+      "validation": {
+        "required": false
+      }
+    },
+    {
+      "name": "overallAssessment",
+      "label": "Overall Assessment",
+      "type": "textarea",
+      "placeholder": "Provide an overall assessment of his qualities as a boyfriend.",
+      "required": true,
+      "validation": {
+        "required": true,
+        "min": "100"
+      }
+    }
+  ],
+  "id": "dafa26f58f9e10cb74430ec41de2914d",
+  "prompt": "create a form to check for a good boy friend",
+  "createdAt": "2025-04-24T04:09:14.666Z"
+}

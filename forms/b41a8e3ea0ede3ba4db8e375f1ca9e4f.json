@@ -1,0 +1,147 @@
+{
+  "title": "Research Study Participant Form",
+  "layout": "vertical",
+  "fields": [
+    {
+      "name": "participantId",
+      "label": "Participant ID",
+      "type": "text",
+      "placeholder": "Enter participant ID",
+      "required": true,
+      "validation": {
+        "required": true,
+        "pattern": "^[A-Za-z0-9-]+$",
+        "min": "3",
+        "max": "20"
+      }
+    },
+    {
+      "name": "dateOfBirth",
+      "label": "Date of Birth",
+      "type": "text",
+      "placeholder": "YYYY-MM-DD",
+      "required": true,
+      "validation": {
+        "required": true,
+        "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
+      }
+    },
+    {
+      "name": "gender",
+      "label": "Gender",
+      "type": "select",
+      "required": true,
+      "options": [
+        "Male",
+        "Female",
+        "Other",
+        "Prefer not to say"
+      ],
+      "validation": {
+        "required": true
+      }
+    },
+    {
+      "name": "race",
+      "label": "Race",
+      "type": "select",
+      "required": true,
+      "options": [
+        "White",
+        "Black or African American",
+        "Asian",
+        "Native American or American Indian",
+        "Pacific Islander",
+        "Other",
+        "Prefer not to say"
+      ],
+      "validation": {
+        "required": true
+      }
+    },
+    {
+      "name": "educationLevel",
+      "label": "Highest Education Level",
+      "type": "select",
+      "required": true,
+      "options": [
+        "Less than High School",
+        "High School Diploma",
+        "Some College",
+        "Bachelor's Degree",
+        "Master's Degree",
+        "Doctorate",
+        "Prefer not to say"
+      ],
+      "validation": {
+        "required": true
+      }
+    },
+    {
+      "name": "employmentStatus",
+      "label": "Employment Status",
+      "type": "select",
+      "required": true,
+      "options": [
+        "Employed full-time",
+        "Employed part-time",
+        "Unemployed",
+        "Student",
+        "Retired",
+        "Other",
+        "Prefer not to say"
+      ],
+      "validation": {
+        "required": true
+      }
+    },
+    {
+      "name": "studySpecificQuestion1",
+      "label": "How many hours per week do you spend exercising?",
+      "type": "slider",
+      "required": true,
+      "validation": {
+        "required": true,
+        "min": "0",
+        "max": "24"
+      }
+    },
+    {
+      "name": "studySpecificQuestion2",
+      "label": "What are your primary motivations for participating in this study?",
+      "type": "textarea",
+      "placeholder": "Please describe your motivations.",
+      "required": true,
+      "validation": {
+        "required": true,
+        "min": "10",
+        "max": "500"
+      }
+    },
+    {
+      "name": "studySpecificQuestion3",
+      "label": "Have you participated in similar studies before?",
+      "type": "radio",
+      "required": true,
+      "options": [
+        "Yes",
+        "No"
+      ],
+      "validation": {
+        "required": true
+      }
+    },
+    {
+      "name": "consentAgreement",
+      "label": "I agree to participate in this study.",
+      "type": "checkbox",
+      "required": true,
+      "validation": {
+        "required": true
+      }
+    }
+  ],
+  "id": "b41a8e3ea0ede3ba4db8e375f1ca9e4f",
+  "prompt": "Build a research study participant form with demographic questions and study-specific fields",
+  "createdAt": "2025-04-17T14:41:23.936Z"
+}

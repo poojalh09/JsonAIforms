@@ -1,0 +1,126 @@
+{
+  "title": "Medication Order Form",
+  "layout": "vertical",
+  "fields": [
+    {
+      "name": "patientName",
+      "label": "Patient Name",
+      "type": "text",
+      "placeholder": "Enter patient's full name",
+      "required": true,
+      "validation": {
+        "required": true,
+        "pattern": "^[a-zA-Z\\s]+$",
+        "min": "2",
+        "max": "100"
+      }
+    },
+    {
+      "name": "medicationName",
+      "label": "Medication Name",
+      "type": "text",
+      "placeholder": "Enter medication name",
+      "required": true,
+      "validation": {
+        "required": true,
+        "min": "2",
+        "max": "100"
+      }
+    },
+    {
+      "name": "dosage",
+      "label": "Dosage",
+      "type": "select",
+      "options": [
+        "25mg",
+        "50mg",
+        "100mg",
+        "200mg",
+        "Other"
+      ],
+      "required": true,
+      "validation": {
+        "required": true
+      }
+    },
+    {
+      "name": "otherDosage",
+      "label": "Other Dosage",
+      "type": "text",
+      "placeholder": "Specify other dosage (e.g., 75mg)",
+      "required": false,
+      "validation": {
+        "pattern": "^[0-9]+(mg|mcg|g)$",
+        "min": "1",
+        "max": "10"
+      }
+    },
+    {
+      "name": "route",
+      "label": "Route of Administration",
+      "type": "select",
+      "options": [
+        "Oral",
+        "IV",
+        "IM",
+        "Subcutaneous",
+        "Topical"
+      ],
+      "required": true,
+      "validation": {
+        "required": true
+      }
+    },
+    {
+      "name": "frequency",
+      "label": "Frequency",
+      "type": "text",
+      "placeholder": "e.g., BID, TID, QHS",
+      "required": true,
+      "validation": {
+        "required": true,
+        "pattern": "^(Q[1-9][Hh]?|BID|TID|QID|QHS|PRN)$",
+        "min": "2",
+        "max": "10"
+      }
+    },
+    {
+      "name": "duration",
+      "label": "Duration",
+      "type": "text",
+      "placeholder": "e.g., 7 days, 1 month, PRN",
+      "required": true,
+      "validation": {
+        "required": true,
+        "min": "2",
+        "max": "20"
+      }
+    },
+    {
+      "name": "administrationInstructions",
+      "label": "Administration Instructions",
+      "type": "textarea",
+      "placeholder": "Enter any special instructions for administration",
+      "required": false,
+      "validation": {
+        "max": "200"
+      }
+    },
+    {
+      "name": "prescriberName",
+      "label": "Prescriber Name",
+      "type": "text",
+      "placeholder": "Enter prescriber's full name",
+      "required": true,
+      "validation": {
+        "required": true,
+        "pattern": "^[a-zA-Z\\s]+$",
+        "min": "2",
+        "max": "100"
+      }
+    }
+  ],
+  "id": "2bf6fef2c22274777033b8fcbb5debf6",
+  "prompt": "Design a medication order form with dosage options and administration instructions",
+  "createdAt": "2025-05-12T09:43:07.514Z"
+}

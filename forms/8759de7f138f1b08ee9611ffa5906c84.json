@@ -1,0 +1,143 @@
+{
+  "title": "Internship Experience Form",
+  "layout": "vertical",
+  "fields": [
+    {
+      "name": "studentName",
+      "label": "Student Name",
+      "type": "text",
+      "placeholder": "Enter your full name",
+      "required": true,
+      "validation": {
+        "required": true,
+        "pattern": "^[a-zA-Z\\s]+$",
+        "min": "2",
+        "max": "100"
+      }
+    },
+    {
+      "name": "rollNumber",
+      "label": "Roll Number",
+      "type": "text",
+      "placeholder": "Enter your University Roll Number",
+      "required": true,
+      "validation": {
+        "required": true,
+        "pattern": "^[0-9]+$",
+        "min": "8",
+        "max": "12"
+      }
+    },
+    {
+      "name": "department",
+      "label": "Department",
+      "type": "select",
+      "options": [
+        "Computer Science and Engineering",
+        "Electronics and Communication Engineering",
+        "Information Technology",
+        "Electrical Engineering",
+        "Mechanical Engineering",
+        "Civil Engineering"
+      ],
+      "required": true,
+      "validation": {
+        "required": true
+      }
+    },
+    {
+      "name": "companyName",
+      "label": "Company Name",
+      "type": "text",
+      "placeholder": "Enter the name of the company",
+      "required": true,
+      "validation": {
+        "required": true,
+        "min": "2",
+        "max": "100"
+      }
+    },
+    {
+      "name": "internshipStartDate",
+      "label": "Internship Start Date",
+      "type": "text",
+      "placeholder": "YYYY-MM-DD",
+      "required": true,
+      "validation": {
+        "required": true,
+        "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
+      }
+    },
+    {
+      "name": "internshipEndDate",
+      "label": "Internship End Date",
+      "type": "text",
+      "placeholder": "YYYY-MM-DD",
+      "required": true,
+      "validation": {
+        "required": true,
+        "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
+      }
+    },
+    {
+      "name": "internshipRole",
+      "label": "Internship Role",
+      "type": "text",
+      "placeholder": "Enter your role during the internship",
+      "required": true,
+      "validation": {
+        "required": true,
+        "min": "2",
+        "max": "100"
+      }
+    },
+    {
+      "name": "internshipDescription",
+      "label": "Internship Description",
+      "type": "textarea",
+      "placeholder": "Describe your responsibilities and achievements during the internship",
+      "required": true,
+      "validation": {
+        "required": true,
+        "min": "10",
+        "max": "500"
+      }
+    },
+    {
+      "name": "stipendReceived",
+      "label": "Stipend Received (if any)",
+      "type": "text",
+      "placeholder": "Enter the amount received, or 0 if unpaid",
+      "required": false,
+      "validation": {
+        "pattern": "^[0-9]+$"
+      }
+    },
+    {
+      "name": "relevantSkills",
+      "label": "Relevant Skills Learned",
+      "type": "tags",
+      "placeholder": "Enter skills separated by commas",
+      "required": true,
+      "validation": {
+        "required": true
+      }
+    },
+    {
+      "name": "letterOfRecommendation",
+      "label": "Letter of Recommendation Received?",
+      "type": "radio",
+      "options": [
+        "Yes",
+        "No"
+      ],
+      "required": true,
+      "validation": {
+        "required": true
+      }
+    }
+  ],
+  "id": "8759de7f138f1b08ee9611ffa5906c84",
+  "prompt": "create a form for internship exp for placement cell gsssietw",
+  "createdAt": "2025-04-04T05:56:25.869Z"
+}

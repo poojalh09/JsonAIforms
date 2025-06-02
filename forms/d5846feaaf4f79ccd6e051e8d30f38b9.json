@@ -1,0 +1,135 @@
+{
+  "title": "Clinical Trial Enrollment Form",
+  "layout": "vertical",
+  "fields": [
+    {
+      "name": "participantName",
+      "label": "Full Name",
+      "type": "text",
+      "placeholder": "Enter your full name",
+      "required": true,
+      "validation": {
+        "required": true,
+        "pattern": "^[a-zA-Z\\s]+$",
+        "min": "3",
+        "max": "100"
+      }
+    },
+    {
+      "name": "dateOfBirth",
+      "label": "Date of Birth",
+      "type": "text",
+      "placeholder": "MM/DD/YYYY",
+      "required": true,
+      "validation": {
+        "required": true,
+        "pattern": "^(0[1-9]|1[0-2])\\/(0[1-9]|[12][0-9]|3[01])\\/(19|20)\\d\\d$"
+      }
+    },
+    {
+      "name": "emailAddress",
+      "label": "Email Address",
+      "type": "text",
+      "placeholder": "Enter your email address",
+      "required": true,
+      "validation": {
+        "required": true,
+        "pattern": "^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$"
+      }
+    },
+    {
+      "name": "phoneNumber",
+      "label": "Phone Number",
+      "type": "text",
+      "placeholder": "Enter your phone number",
+      "required": true,
+      "validation": {
+        "required": true,
+        "pattern": "^\\d{10}$"
+      }
+    },
+    {
+      "name": "address",
+      "label": "Address",
+      "type": "textarea",
+      "placeholder": "Enter your street address, city, and zip code",
+      "required": true,
+      "validation": {
+        "required": true,
+        "min": "10",
+        "max": "200"
+      }
+    },
+    {
+      "name": "consentAgreement",
+      "label": "Informed Consent Agreement",
+      "type": "textarea",
+      "required": true,
+      "validation": {
+        "required": true,
+        "min": "500"
+      }
+    },
+    {
+      "name": "consentAcknowledgement",
+      "label": "I have read and understand the informed consent agreement.",
+      "type": "checkbox",
+      "required": true,
+      "validation": {
+        "required": true
+      }
+    },
+    {
+      "name": "eligibilityQuestion1",
+      "label": "Do you have a history of [Specific Condition]?",
+      "type": "radio",
+      "options": [
+        "Yes",
+        "No"
+      ],
+      "required": true,
+      "validation": {
+        "required": true
+      }
+    },
+    {
+      "name": "eligibilityQuestion2",
+      "label": "Are you currently taking [Specific Medication]?",
+      "type": "radio",
+      "options": [
+        "Yes",
+        "No"
+      ],
+      "required": true,
+      "validation": {
+        "required": true
+      }
+    },
+    {
+      "name": "eligibilityQuestion3",
+      "label": "Are you between the ages of [Minimum Age] and [Maximum Age]?",
+      "type": "radio",
+      "options": [
+        "Yes",
+        "No"
+      ],
+      "required": true,
+      "validation": {
+        "required": true
+      }
+    },
+    {
+      "name": "priorMedicalConditions",
+      "label": "List any prior medical conditions",
+      "type": "textarea",
+      "placeholder": "Please list any prior medical conditions that you have",
+      "required": false,
+      "validation": {
+        "required": false
+      }
+    }
+  ],
+  "id": "d5846feaaf4f79ccd6e051e8d30f38b9",
+  "prompt": "Make a clinical trial enrollment form with consent sections and eligibility questions",
+  "createdAt": "2025-04-25T08:30:59.270Z"
+}

@@ -1,0 +1,128 @@
+{
+  "title": "Clinical Trial Enrollment Form",
+  "layout": "vertical",
+  "fields": [
+    {
+      "name": "participantName",
+      "label": "Full Name",
+      "type": "text",
+      "placeholder": "Enter your full name",
+      "required": true,
+      "validation": {
+        "required": true,
+        "pattern": "^[a-zA-Z\\s]+$",
+        "min": "3",
+        "max": "100"
+      }
+    },
+    {
+      "name": "dateOfBirth",
+      "label": "Date of Birth",
+      "type": "text",
+      "placeholder": "YYYY-MM-DD",
+      "required": true,
+      "validation": {
+        "required": true,
+        "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
+      }
+    },
+    {
+      "name": "emailAddress",
+      "label": "Email Address",
+      "type": "text",
+      "placeholder": "Enter your email address",
+      "required": true,
+      "validation": {
+        "required": true,
+        "pattern": "^[\\w-\\.]+@([\\w-]+\\.)+[\\w-]{2,4}$"
+      }
+    },
+    {
+      "name": "phoneNumber",
+      "label": "Phone Number",
+      "type": "text",
+      "placeholder": "Enter your phone number",
+      "required": true,
+      "validation": {
+        "required": true,
+        "pattern": "^\\d{10}$"
+      }
+    },
+    {
+      "name": "address",
+      "label": "Address",
+      "type": "textarea",
+      "placeholder": "Enter your full address",
+      "required": true,
+      "validation": {
+        "required": true,
+        "min": "10",
+        "max": "200"
+      }
+    },
+    {
+      "name": "consentAgreement",
+      "label": "Consent Agreement",
+      "type": "checkbox",
+      "options": [
+        "I have read and understand the consent form and agree to participate in the trial."
+      ],
+      "required": true,
+      "validation": {
+        "required": true
+      }
+    },
+    {
+      "name": "eligibilityQuestion1",
+      "label": "Do you have a history of heart disease?",
+      "type": "radio",
+      "options": [
+        "Yes",
+        "No"
+      ],
+      "required": true,
+      "validation": {
+        "required": true
+      }
+    },
+    {
+      "name": "eligibilityQuestion2",
+      "label": "Are you currently taking any medications?",
+      "type": "radio",
+      "options": [
+        "Yes",
+        "No"
+      ],
+      "required": true,
+      "validation": {
+        "required": true
+      }
+    },
+    {
+      "name": "medicationList",
+      "label": "Please list any current medications:",
+      "type": "textarea",
+      "placeholder": "List all medications you are currently taking.",
+      "required": false,
+      "validation": {
+        "required": false
+      }
+    },
+    {
+      "name": "eligibilityQuestion3",
+      "label": "Are you pregnant or breastfeeding?",
+      "type": "radio",
+      "options": [
+        "Yes",
+        "No"
+      ],
+      "required": true,
+      "validation": {
+        "required": true
+      }
+    }
+  ],
+  "id": "7bcb44a7794dc8ff1196eb7d3b67ff09",
+  "prompt": "Make a clinical trial enrollment form with consent sections and eligibility questions",
+  "createdAt": "2025-04-07T08:16:53.880Z"
+}

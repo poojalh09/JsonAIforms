@@ -1,0 +1,150 @@
+{
+  "title": "Research Study Participant Form",
+  "layout": "vertical",
+  "fields": [
+    {
+      "name": "firstName",
+      "label": "First Name",
+      "type": "text",
+      "placeholder": "Enter first name",
+      "required": true,
+      "validation": {
+        "required": true,
+        "pattern": "^[a-zA-Z]+$",
+        "min": "2",
+        "max": "50"
+      }
+    },
+    {
+      "name": "lastName",
+      "label": "Last Name",
+      "type": "text",
+      "placeholder": "Enter last name",
+      "required": true,
+      "validation": {
+        "required": true,
+        "pattern": "^[a-zA-Z]+$",
+        "min": "2",
+        "max": "50"
+      }
+    },
+    {
+      "name": "dateOfBirth",
+      "label": "Date of Birth",
+      "type": "text",
+      "placeholder": "YYYY-MM-DD",
+      "required": true,
+      "validation": {
+        "required": true,
+        "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
+      }
+    },
+    {
+      "name": "email",
+      "label": "Email Address",
+      "type": "text",
+      "placeholder": "Enter email",
+      "required": true,
+      "validation": {
+        "required": true,
+        "pattern": "^[\\w-\\.]+@([\\w-]+\\.)+[\\w-]{2,4}$"
+      }
+    },
+    {
+      "name": "gender",
+      "label": "Gender",
+      "type": "select",
+      "required": true,
+      "options": [
+        "Male",
+        "Female",
+        "Other",
+        "Prefer not to say"
+      ],
+      "validation": {
+        "required": true
+      }
+    },
+    {
+      "name": "ethnicity",
+      "label": "Ethnicity",
+      "type": "select",
+      "required": true,
+      "options": [
+        "Hispanic or Latino",
+        "Not Hispanic or Latino",
+        "Prefer not to say"
+      ],
+      "validation": {
+        "required": true
+      }
+    },
+    {
+      "name": "educationLevel",
+      "label": "Highest Education Level",
+      "type": "select",
+      "required": true,
+      "options": [
+        "Less than High School",
+        "High School Graduate",
+        "Some College",
+        "Bachelor's Degree",
+        "Master's Degree",
+        "Doctorate"
+      ],
+      "validation": {
+        "required": true
+      }
+    },
+    {
+      "name": "studySpecificQuestion1",
+      "label": "Years of experience in field X",
+      "type": "slider",
+      "required": true,
+      "validation": {
+        "required": true,
+        "min": "0",
+        "max": "50"
+      }
+    },
+    {
+      "name": "studySpecificQuestion2",
+      "label": "Are you currently employed?",
+      "type": "radio",
+      "required": true,
+      "options": [
+        "Yes",
+        "No"
+      ],
+      "validation": {
+        "required": true
+      }
+    },
+    {
+      "name": "studySpecificQuestion3",
+      "label": "Preferred communication methods",
+      "type": "checkbox",
+      "options": [
+        "Email",
+        "Phone",
+        "Text Message"
+      ],
+      "validation": {
+        "required": false
+      }
+    },
+    {
+      "name": "comments",
+      "label": "Any additional comments?",
+      "type": "textarea",
+      "placeholder": "Enter any additional information here",
+      "required": false,
+      "validation": {
+        "required": false
+      }
+    }
+  ],
+  "id": "bd6b83552428674e1de60da24c08b9b7",
+  "prompt": "Build a research study participant form with demographic questions and study-specific fields",
+  "createdAt": "2025-05-25T19:01:36.427Z"
+}

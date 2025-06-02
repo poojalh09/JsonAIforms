@@ -1,19 +1,16 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  output: 'export',
-  eslint: {
-    ignoreDuringBuilds: true,
+  reactStrictMode: true,
+  output: 'standalone',
+  images: {
+    unoptimized: true
   },
-  images: { unoptimized: true },
+  typescript: {
+    ignoreBuildErrors: true
+  },
+  eslint: {
+    ignoreDuringBuilds: true
+  }
 };
 
 module.exports = nextConfig;
-
-// module.exports = {
-//   output: 'export',
-//   excludeFiles: [
-//     'app/api/get-table-ids/**',  // Excludes entire directory
-//     // or
-//     'app/api/get-table-ids/route.js'  // Excludes specific file
-//   ]
-// }

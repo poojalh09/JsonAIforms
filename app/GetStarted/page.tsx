@@ -10,7 +10,6 @@ import AIFormGenerator from "@/components/AIFormGenerator";
 import AITableGenerator from "@/components/AITableGenerator";
 import { ThemeToggle } from "@/components/ThemeToggle";
 import Link from 'next/link'
-
 import Image from 'next/image'
 
 export default function Home() {
@@ -29,13 +28,15 @@ export default function Home() {
     <div className="min-h-screen bg-background">
       <div className="container mx-auto py-2 mb-3">
         <div className="flex justify-between items-center m-1">
-          <Image 
-            src="https://lastrasbourgeoise.eu/wp-content/uploads/2018/09/eli-lilly-logo-vector.png" 
-            alt="logo" 
-            width="110" 
-            height="110" 
-            className="cursor-pointer"
-          />
+          <Link href="/">
+            <Image 
+              src="https://lastrasbourgeoise.eu/wp-content/uploads/2018/09/eli-lilly-logo-vector.png" 
+              alt="logo" 
+              width="110" 
+              height="110" 
+              className="cursor-pointer"
+            />
+          </Link>
           <div className="flex items-center gap-4">
             <Link href="/view-forms">
               <Button variant="outline">View Forms</Button>
@@ -61,8 +62,11 @@ export default function Home() {
             </div>
           </div>
         </div>
-        
-        <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full">
+        <Tabs 
+          value={activeTab} 
+          onValueChange={setActiveTab} 
+          className="w-full"
+        >
           <TabsList className="grid w-full grid-cols-2 mb-6 rounded-xl bg-muted h-12">
             <TabsTrigger 
               value="form" 
@@ -79,7 +83,6 @@ export default function Home() {
               AI Table Generator
             </TabsTrigger>
           </TabsList>
-          
           <div className="border border-red-100 dark:border-red-900/20 rounded-xl p-1">
             <TabsContent value="form" className="mt-0">
               <Card className="border-0 shadow-lg">
@@ -97,7 +100,6 @@ export default function Home() {
                 </CardContent>
               </Card>
             </TabsContent>
-            
             <TabsContent value="table" className="mt-0">
               <Card className="border-0 shadow-lg">
                 <CardHeader>
@@ -116,7 +118,6 @@ export default function Home() {
             </TabsContent>
           </div>
         </Tabs>
-        
         <div className="mt-6 text-center text-sm text-muted-foreground">
           <p>Built with Next.js • shadcn/ui • OpenAI</p>
         </div>

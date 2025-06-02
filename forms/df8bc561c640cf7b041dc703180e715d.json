@@ -1,0 +1,116 @@
+{
+  "title": "Clinical Trial Enrollment Form",
+  "layout": "vertical",
+  "fields": [
+    {
+      "name": "patientName",
+      "label": "Patient Name",
+      "type": "text",
+      "placeholder": "Enter full name",
+      "required": true,
+      "validation": {
+        "required": true,
+        "pattern": "^[a-zA-Z\\s]+$",
+        "min": "3",
+        "max": "100"
+      }
+    },
+    {
+      "name": "patientDateOfBirth",
+      "label": "Date of Birth",
+      "type": "text",
+      "placeholder": "MM/DD/YYYY",
+      "required": true,
+      "validation": {
+        "required": true,
+        "pattern": "^(0[1-9]|1[0-2])\\/(0[1-9]|[12][0-9]|3[01])\\/(19|20)\\d{2}$"
+      }
+    },
+    {
+      "name": "patientEmail",
+      "label": "Email Address",
+      "type": "text",
+      "placeholder": "Enter email address",
+      "required": true,
+      "validation": {
+        "required": true,
+        "pattern": "^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$"
+      }
+    },
+    {
+      "name": "patientPhoneNumber",
+      "label": "Phone Number",
+      "type": "text",
+      "placeholder": "Enter phone number",
+      "required": true,
+      "validation": {
+        "required": true,
+        "pattern": "^\\d{3}-\\d{3}-\\d{4}$"
+      }
+    },
+    {
+      "name": "consentAgreement",
+      "label": "Consent Agreement",
+      "type": "checkbox",
+      "options": [
+        "I have read and understood the consent form.",
+        "I agree to participate in the clinical trial."
+      ],
+      "required": true,
+      "validation": {
+        "required": true
+      }
+    },
+    {
+      "name": "medicalHistory",
+      "label": "Medical History",
+      "type": "textarea",
+      "placeholder": "Provide a brief summary of your medical history",
+      "required": true,
+      "validation": {
+        "required": true,
+        "min": "10",
+        "max": "500"
+      }
+    },
+    {
+      "name": "eligibleCondition",
+      "label": "Do you have the following condition?",
+      "type": "radio",
+      "options": [
+        "Yes",
+        "No"
+      ],
+      "required": true,
+      "validation": {
+        "required": true
+      }
+    },
+    {
+      "name": "currentMedications",
+      "label": "Current Medications",
+      "type": "tags",
+      "placeholder": "Enter current medications",
+      "required": false,
+      "validation": {
+        "required": false
+      }
+    },
+    {
+      "name": "willingToComply",
+      "label": "Are you willing to comply with all trial requirements?",
+      "type": "radio",
+      "options": [
+        "Yes",
+        "No"
+      ],
+      "required": true,
+      "validation": {
+        "required": true
+      }
+    }
+  ],
+  "id": "df8bc561c640cf7b041dc703180e715d",
+  "prompt": "Make a clinical trial enrollment form with consent sections and eligibility questions",
+  "createdAt": "2025-05-23T07:26:36.976Z"
+}

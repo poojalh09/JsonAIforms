@@ -1,0 +1,149 @@
+{
+  "title": "Research Study Participant Form",
+  "layout": "vertical",
+  "fields": [
+    {
+      "name": "firstName",
+      "label": "First Name",
+      "type": "text",
+      "placeholder": "Enter your first name",
+      "required": true,
+      "validation": {
+        "required": true,
+        "pattern": "^[A-Za-z]+$"
+      }
+    },
+    {
+      "name": "lastName",
+      "label": "Last Name",
+      "type": "text",
+      "placeholder": "Enter your last name",
+      "required": true,
+      "validation": {
+        "required": true,
+        "pattern": "^[A-Za-z]+$"
+      }
+    },
+    {
+      "name": "dateOfBirth",
+      "label": "Date of Birth",
+      "type": "text",
+      "placeholder": "MM/DD/YYYY",
+      "required": true,
+      "validation": {
+        "required": true,
+        "pattern": "^(0[1-9]|1[012])[- \\/.](0[1-9]|[12][0-9]|3[01])[- \\/.](19|20)\\d\\d$"
+      }
+    },
+    {
+      "name": "gender",
+      "label": "Gender",
+      "type": "select",
+      "required": true,
+      "options": [
+        "Male",
+        "Female",
+        "Other",
+        "Prefer not to say"
+      ],
+      "validation": {
+        "required": true
+      }
+    },
+    {
+      "name": "race",
+      "label": "Race",
+      "type": "select",
+      "required": true,
+      "options": [
+        "White",
+        "Black or African American",
+        "Asian",
+        "Native American or American Indian",
+        "Pacific Islander",
+        "Other",
+        "Prefer not to say"
+      ],
+      "validation": {
+        "required": true
+      }
+    },
+    {
+      "name": "email",
+      "label": "Email Address",
+      "type": "text",
+      "placeholder": "Enter your email address",
+      "required": true,
+      "validation": {
+        "required": true,
+        "pattern": "^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$"
+      }
+    },
+    {
+      "name": "phoneNumber",
+      "label": "Phone Number",
+      "type": "text",
+      "placeholder": "Enter your phone number",
+      "required": true,
+      "validation": {
+        "required": true,
+        "pattern": "^\\d{3}-\\d{3}-\\d{4}$"
+      }
+    },
+    {
+      "name": "educationLevel",
+      "label": "Highest Education Level",
+      "type": "select",
+      "required": true,
+      "options": [
+        "High School",
+        "Some College",
+        "Associate's Degree",
+        "Bachelor's Degree",
+        "Master's Degree",
+        "Doctorate",
+        "Other"
+      ],
+      "validation": {
+        "required": true
+      }
+    },
+    {
+      "name": "studySpecificQuestion1",
+      "label": "How many hours of sleep do you get per night?",
+      "type": "slider",
+      "required": true,
+      "min": "0",
+      "max": "12",
+      "validation": {
+        "required": true
+      }
+    },
+    {
+      "name": "studySpecificQuestion2",
+      "label": "Have you participated in a similar study before?",
+      "type": "radio",
+      "required": true,
+      "options": [
+        "Yes",
+        "No"
+      ],
+      "validation": {
+        "required": true
+      }
+    },
+    {
+      "name": "comments",
+      "label": "Any other comments or information you would like to share?",
+      "type": "textarea",
+      "placeholder": "Enter any additional comments here",
+      "required": false,
+      "validation": {
+        "required": false
+      }
+    }
+  ],
+  "id": "57f175574578a33618b256147e7cd989",
+  "prompt": "Build a research study participant form with demographic questions and study-specific fields",
+  "createdAt": "2025-05-25T08:15:03.569Z"
+}

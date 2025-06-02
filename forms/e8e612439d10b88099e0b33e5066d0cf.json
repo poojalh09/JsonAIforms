@@ -1,0 +1,120 @@
+{
+  "title": "Clinical Trial Enrollment Form",
+  "layout": "vertical",
+  "fields": [
+    {
+      "name": "participantName",
+      "label": "Full Name",
+      "type": "text",
+      "placeholder": "Enter your full name",
+      "required": true,
+      "validation": {
+        "required": true,
+        "pattern": "^[a-zA-Z\\s]+$",
+        "min": "3",
+        "max": "100"
+      }
+    },
+    {
+      "name": "dateOfBirth",
+      "label": "Date of Birth",
+      "type": "text",
+      "placeholder": "MM/DD/YYYY",
+      "required": true,
+      "validation": {
+        "required": true,
+        "pattern": "^(0[1-9]|1[0-2])\\/(0[1-9]|[12][0-9]|3[01])\\/(19|20)\\d\\d$"
+      }
+    },
+    {
+      "name": "emailAddress",
+      "label": "Email Address",
+      "type": "text",
+      "placeholder": "Enter your email address",
+      "required": true,
+      "validation": {
+        "required": true,
+        "pattern": "^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$"
+      }
+    },
+    {
+      "name": "phoneNumber",
+      "label": "Phone Number",
+      "type": "text",
+      "placeholder": "Enter your phone number",
+      "required": true,
+      "validation": {
+        "required": true,
+        "pattern": "^\\d{3}-\\d{3}-\\d{4}$"
+      }
+    },
+    {
+      "name": "address",
+      "label": "Address",
+      "type": "textarea",
+      "placeholder": "Enter your street address, city, and zip code",
+      "required": true,
+      "validation": {
+        "required": true,
+        "min": "10",
+        "max": "200"
+      }
+    },
+    {
+      "name": "consentAgreement",
+      "label": "Do you agree to participate in this clinical trial?",
+      "type": "radio",
+      "required": true,
+      "options": [
+        "Yes",
+        "No"
+      ],
+      "validation": {
+        "required": true
+      }
+    },
+    {
+      "name": "medicalCondition",
+      "label": "Do you have the specified medical condition required for the trial?",
+      "type": "radio",
+      "required": true,
+      "options": [
+        "Yes",
+        "No"
+      ],
+      "validation": {
+        "required": true
+      }
+    },
+    {
+      "name": "ageEligibility",
+      "label": "Are you within the age range specified for the trial?",
+      "type": "radio",
+      "required": true,
+      "options": [
+        "Yes",
+        "No"
+      ],
+      "validation": {
+        "required": true
+      }
+    },
+    {
+      "name": "medications",
+      "label": "List any medications you are currently taking:",
+      "type": "textarea",
+      "placeholder": "List all medications, including dosages",
+      "required": false
+    },
+    {
+      "name": "allergies",
+      "label": "Do you have any allergies?",
+      "type": "textarea",
+      "placeholder": "List any allergies",
+      "required": false
+    }
+  ],
+  "id": "e8e612439d10b88099e0b33e5066d0cf",
+  "prompt": "Make a clinical trial enrollment form with consent sections and eligibility questions",
+  "createdAt": "2025-04-17T11:07:17.337Z"
+}

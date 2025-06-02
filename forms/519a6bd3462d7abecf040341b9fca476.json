@@ -1,0 +1,105 @@
+{
+  "title": "GSOC 2026 Application Form",
+  "layout": "vertical",
+  "fields": [
+    {
+      "name": "projectName",
+      "label": "Project Name",
+      "type": "text",
+      "placeholder": "Enter the project name",
+      "required": true,
+      "validation": {
+        "required": true,
+        "pattern": "^[a-zA-Z0-9\\s]{3,}$",
+        "min": "3",
+        "max": "100"
+      }
+    },
+    {
+      "name": "projectDescription",
+      "label": "Project Description",
+      "type": "textarea",
+      "placeholder": "Describe your project idea in detail",
+      "required": true,
+      "validation": {
+        "required": true,
+        "min": "100",
+        "max": "1000"
+      }
+    },
+    {
+      "name": "technologyStack",
+      "label": "Technology Stack",
+      "type": "tags",
+      "placeholder": "Add relevant technologies (e.g., Python, JavaScript, React)",
+      "required": true,
+      "validation": {
+        "required": true,
+        "min": "1",
+        "max": "5"
+      }
+    },
+    {
+      "name": "expectedTimeline",
+      "label": "Expected Timeline (Weeks)",
+      "type": "slider",
+      "placeholder": "Select the expected project duration in weeks",
+      "required": true,
+      "validation": {
+        "required": true,
+        "min": "8",
+        "max": "12"
+      }
+    },
+    {
+      "name": "priorExperience",
+      "label": "Prior Experience",
+      "type": "textarea",
+      "placeholder": "Describe your experience related to this project",
+      "required": true,
+      "validation": {
+        "required": true,
+        "min": "50",
+        "max": "500"
+      }
+    },
+    {
+      "name": "organizationPreference",
+      "label": "Preferred Organization",
+      "type": "text",
+      "placeholder": "Enter the name of the organization you prefer (optional)",
+      "required": false,
+      "validation": {
+        "max": "100"
+      }
+    },
+    {
+      "name": "communicationPreference",
+      "label": "Preferred Communication Method",
+      "type": "radio",
+      "required": true,
+      "options": [
+        "Email",
+        "Slack",
+        "IRC",
+        "Other"
+      ],
+      "validation": {
+        "required": true
+      }
+    },
+    {
+      "name": "agreeToTerms",
+      "label": "I agree to the GSOC terms and conditions",
+      "type": "checkbox",
+      "required": true,
+      "validation": {
+        "required": true
+      },
+      "options": []
+    }
+  ],
+  "id": "519a6bd3462d7abecf040341b9fca476",
+  "prompt": "create a form for GSOC requirements 2026",
+  "createdAt": "2025-04-04T05:53:55.196Z"
+}

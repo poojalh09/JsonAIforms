@@ -1,0 +1,134 @@
+{
+  "title": "Research Study Participant Form",
+  "layout": "vertical",
+  "fields": [
+    {
+      "name": "firstName",
+      "label": "First Name",
+      "type": "text",
+      "placeholder": "Enter your first name",
+      "required": true,
+      "validation": {
+        "required": true,
+        "pattern": "^[A-Za-z]+$",
+        "min": "2",
+        "max": "50"
+      }
+    },
+    {
+      "name": "lastName",
+      "label": "Last Name",
+      "type": "text",
+      "placeholder": "Enter your last name",
+      "required": true,
+      "validation": {
+        "required": true,
+        "pattern": "^[A-Za-z]+$",
+        "min": "2",
+        "max": "50"
+      }
+    },
+    {
+      "name": "dateOfBirth",
+      "label": "Date of Birth",
+      "type": "text",
+      "placeholder": "MM/DD/YYYY",
+      "required": true,
+      "validation": {
+        "required": true,
+        "pattern": "^(0[1-9]|1[0-2])/(0[1-9]|[12][0-9]|3[01])/(19|20)\\d{2}$"
+      }
+    },
+    {
+      "name": "gender",
+      "label": "Gender",
+      "type": "select",
+      "required": true,
+      "options": [
+        "Male",
+        "Female",
+        "Other",
+        "Prefer not to say"
+      ],
+      "validation": {
+        "required": true
+      }
+    },
+    {
+      "name": "email",
+      "label": "Email Address",
+      "type": "text",
+      "placeholder": "Enter your email address",
+      "required": true,
+      "validation": {
+        "required": true,
+        "pattern": "^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$"
+      }
+    },
+    {
+      "name": "phoneNumber",
+      "label": "Phone Number",
+      "type": "text",
+      "placeholder": "Enter your phone number",
+      "required": false,
+      "validation": {
+        "pattern": "^\\d{3}-\\d{3}-\\d{4}$"
+      }
+    },
+    {
+      "name": "educationLevel",
+      "label": "Highest Level of Education Completed",
+      "type": "select",
+      "required": true,
+      "options": [
+        "Less than High School",
+        "High School Diploma or GED",
+        "Some College",
+        "Associate's Degree",
+        "Bachelor's Degree",
+        "Master's Degree",
+        "Doctorate Degree"
+      ],
+      "validation": {
+        "required": true
+      }
+    },
+    {
+      "name": "studyInterest",
+      "label": "Why are you interested in participating in this study?",
+      "type": "textarea",
+      "placeholder": "Please explain your interest in the study.",
+      "required": true,
+      "validation": {
+        "required": true,
+        "min": "50",
+        "max": "500"
+      }
+    },
+    {
+      "name": "priorExperience",
+      "label": "Prior Research Experience?",
+      "type": "radio",
+      "required": true,
+      "options": [
+        "Yes",
+        "No"
+      ],
+      "validation": {
+        "required": true
+      }
+    },
+    {
+      "name": "consentAgreement",
+      "label": "I agree to the terms and conditions of this study.",
+      "type": "checkbox",
+      "required": true,
+      "validation": {
+        "required": true
+      }
+    }
+  ],
+  "id": "d8c09d3c0bb5e5fb1dd3cb2b5adb6396",
+  "prompt": "Build a research study participant form with demographic questions and study-specific fields",
+  "createdAt": "2025-04-07T16:56:05.272Z"
+}

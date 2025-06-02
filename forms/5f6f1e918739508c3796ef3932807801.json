@@ -1,0 +1,142 @@
+{
+  "title": "POC Intern Skills Analysis Form",
+  "layout": "vertical",
+  "fields": [
+    {
+      "name": "internName",
+      "label": "Intern Name",
+      "type": "text",
+      "placeholder": "Enter intern's full name",
+      "required": true,
+      "validation": {
+        "required": true,
+        "pattern": "^[a-zA-Z\\s]+$",
+        "min": "2",
+        "max": "100"
+      }
+    },
+    {
+      "name": "internEmail",
+      "label": "Intern Email",
+      "type": "text",
+      "placeholder": "Enter intern's Lilly email",
+      "required": true,
+      "validation": {
+        "required": true,
+        "pattern": "^[a-zA-Z0-9._%+-]+@lilly\\.com$",
+        "min": "5",
+        "max": "100"
+      }
+    },
+    {
+      "name": "pocStartDate",
+      "label": "POC Start Date",
+      "type": "text",
+      "placeholder": "YYYY-MM-DD",
+      "required": true,
+      "validation": {
+        "required": true,
+        "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
+      }
+    },
+    {
+      "name": "department",
+      "label": "Department",
+      "type": "select",
+      "options": [
+        "Data Science",
+        "Software Engineering",
+        "Research",
+        "Other"
+      ],
+      "required": true,
+      "validation": {
+        "required": true
+      }
+    },
+    {
+      "name": "newSkills",
+      "label": "New Skills to be Learned",
+      "type": "textarea",
+      "placeholder": "List the new skills the intern is expected to learn during the POC",
+      "required": true,
+      "validation": {
+        "required": true,
+        "min": "10",
+        "max": "500"
+      }
+    },
+    {
+      "name": "skillCategories",
+      "label": "Skill Categories",
+      "type": "tags",
+      "placeholder": "Enter skill categories (e.g., Python, Machine Learning, Cloud Computing)",
+      "required": false,
+      "validation": {
+        "required": false
+      }
+    },
+    {
+      "name": "learningResources",
+      "label": "Planned Learning Resources",
+      "type": "textarea",
+      "placeholder": "List the learning resources (e.g., online courses, mentorship, documentation)",
+      "required": false,
+      "validation": {
+        "min": "0",
+        "max": "500"
+      }
+    },
+    {
+      "name": "expectedProficiencyLevel",
+      "label": "Expected Proficiency Level After POC",
+      "type": "select",
+      "options": [
+        "Beginner",
+        "Intermediate",
+        "Advanced"
+      ],
+      "required": true,
+      "validation": {
+        "required": true
+      }
+    },
+    {
+      "name": "mentorName",
+      "label": "Mentor Name",
+      "type": "text",
+      "placeholder": "Enter mentor's full name",
+      "required": false,
+      "validation": {
+        "pattern": "^[a-zA-Z\\s]+$",
+        "min": "2",
+        "max": "100"
+      }
+    },
+    {
+      "name": "mentorEmail",
+      "label": "Mentor Email",
+      "type": "text",
+      "placeholder": "Enter mentor's Lilly email",
+      "required": false,
+      "validation": {
+        "pattern": "^[a-zA-Z0-9._%+-]+@lilly\\.com$",
+        "min": "5",
+        "max": "100"
+      }
+    },
+    {
+      "name": "comments",
+      "label": "Additional Comments",
+      "type": "textarea",
+      "placeholder": "Any other relevant information or comments",
+      "required": false,
+      "validation": {
+        "required": false
+      }
+    }
+  ],
+  "id": "5f6f1e918739508c3796ef3932807801",
+  "prompt": "make detailed form analysis of the POC interns @tech@lilly and their new skills section whichever they are supposed to learn",
+  "createdAt": "2025-04-04T06:42:53.015Z"
+}

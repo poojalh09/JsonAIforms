@@ -1,4 +1,5 @@
 import { GoogleGenAI } from "@google/genai";
+import { jsonRepair } from "./jsonRepair";
 
 if (!process.env.GEMINI_API_KEY) {
   throw new Error("GEMINI_API_KEY is not set in environment variables");
@@ -36,7 +37,13 @@ function cleanJsonResponse(text: string): string {
   }
 }
 
-export async function generateFormDefinition(prompt: string) {
+interface FormDefinition {
+  title: string;
+  layout: string;
+  fields: any[];
+}
+
+export async function generateFormDefinition(prompt: string): Promise<FormDefinition> {
   try {
     const response = await ai.models.generateContent({
       model: "gemini-2.0-flash",
@@ -94,46 +101,72 @@ Create a form for this use case: ${prompt}`
     const cleanedText = cleanJsonResponse(fullText);
     console.log('Cleaned Response Text:', cleanedText);
 
-    try {
-      // Attempt to parse the cleaned response as JSON
-      const formDefinition = JSON.parse(cleanedText);
-      
-      // Validate the structure
-      if (!formDefinition.title || !formDefinition.layout || !Array.isArray(formDefinition.fields)) {
-        throw new Error("Invalid form definition structure");
-      }
-      
-      // Process and validate fields
-      formDefinition.fields.forEach((field: any) => {
-        if (!field.name || !field.label || !field.type) {
-          throw new Error("Invalid field definition");
-        }
-        
-        // Ensure camelCase field names
-        field.name = field.name
-          .replace(/[^a-zA-Z0-9]+(.)/g, (m: string, chr: string) => chr.toUpperCase())
-          .replace(/^[A-Z]/, (firstChar: string) => firstChar.toLowerCase());
-        
-        // Default options for select/radio/checkbox
-        if (["select", "radio", "checkbox"].includes(field.type)) {
-          field.options = field.options || [];
-        }
-
-        // Ensure validation object
-        field.validation = field.validation || {
-          required: field.required || false
-        };
-      });
-      
-      return formDefinition;
-    } catch (parseError) {
-      console.error('JSON Parsing Error:', parseError);
-      console.error('Failed Response Text:', cleanedText);
-      
-      throw new Error(`Invalid response format from Gemini: ${parseError instanceof Error ? parseError.message : 'Unknown error'}`);
-    }
+    return generateFormDefinitionFromCleanedText(cleanedText);
   } catch (error) {
     console.error('Gemini API Error:', error);
+    throw error;
+  }
+}
+
+export async function generateFormDefinitionFromCleanedText(cleanedText: string): Promise<FormDefinition> {
+  try {
+    let formDefinition: FormDefinition;
+    
+    // More aggressive JSON cleaning and repair
+    const cleanJson = (text: string) => {
+      // Use the new jsonRepair utility to fix broken escape sequences in regex patterns
+      return jsonRepair(text);
+    };
+
+    try {
+      // First, attempt to parse the original text
+      formDefinition = JSON.parse(cleanedText) as FormDefinition;
+    } catch (parseError) {
+      console.error('Initial JSON Parsing Error:', parseError);
+      
+      // Apply cleaning and repair
+      const cleanedJson = cleanJson(cleanedText);
+      
+      try {
+        formDefinition = JSON.parse(cleanedJson) as FormDefinition;
+      } catch (repairError) {
+        console.error('JSON Repair Error:', repairError);
+        console.error('Original Response:', cleanedText);
+        console.error('Cleaned Response:', cleanedJson);
+        
+        // If repair fails, attempt to manually reconstruct or provide a fallback
+        throw new Error(`Failed to parse Gemini API response. Unable to clean JSON. Original error: ${repairError instanceof Error ? repairError.message : 'Unknown parsing error'}`);
+      }
+    }
+
+    // Validate and normalize the form definition
+    if (!formDefinition || !formDefinition.fields || !Array.isArray(formDefinition.fields)) {
+      throw new Error('Invalid form definition: missing or invalid fields');
+    }
+
+    // Process each field to ensure validation and set default values
+    formDefinition.fields = formDefinition.fields.map((field) => {
+      // Ensure basic field properties
+      if (!field.label || !field.type) {
+        throw new Error(`Invalid field: missing label or type - ${JSON.stringify(field)}`);
+      }
+
+      // Set default options if not provided
+      if (field.type === 'select' && (!field.options || field.options.length === 0)) {
+        field.options = [];
+      }
+
+      // Set default validation if not provided
+      field.validation = field.validation || {
+        required: field.required || false
+      };
+
+      return field;
+    });
+
+    return formDefinition;
+  } catch (error) {
+    console.error('Form Definition Generation Error:', error);
     throw error;
   }
 }

@@ -1,0 +1,146 @@
+{
+  "title": "Patient Registration Form",
+  "layout": "vertical",
+  "fields": [
+    {
+      "name": "firstName",
+      "label": "First Name",
+      "type": "text",
+      "placeholder": "Enter your first name",
+      "required": true,
+      "validation": {
+        "required": true,
+        "pattern": "^[a-zA-Z]+$",
+        "min": "2",
+        "max": "50"
+      }
+    },
+    {
+      "name": "lastName",
+      "label": "Last Name",
+      "type": "text",
+      "placeholder": "Enter your last name",
+      "required": true,
+      "validation": {
+        "required": true,
+        "pattern": "^[a-zA-Z]+$",
+        "min": "2",
+        "max": "50"
+      }
+    },
+    {
+      "name": "dateOfBirth",
+      "label": "Date of Birth",
+      "type": "text",
+      "placeholder": "MM/DD/YYYY",
+      "required": true,
+      "validation": {
+        "required": true,
+        "pattern": "^(0[1-9]|1[0-2])/(0[1-9]|[12][0-9]|3[01])/(19|20)\\d\\d$"
+      }
+    },
+    {
+      "name": "gender",
+      "label": "Gender",
+      "type": "select",
+      "options": [
+        "Male",
+        "Female",
+        "Other"
+      ],
+      "required": true,
+      "validation": {
+        "required": true
+      }
+    },
+    {
+      "name": "address",
+      "label": "Address",
+      "type": "textarea",
+      "placeholder": "Enter your street address",
+      "required": true,
+      "validation": {
+        "required": true,
+        "min": "5",
+        "max": "200"
+      }
+    },
+    {
+      "name": "phoneNumber",
+      "label": "Phone Number",
+      "type": "text",
+      "placeholder": "Enter your phone number",
+      "required": true,
+      "validation": {
+        "required": true,
+        "pattern": "^\\d{3}-\\d{3}-\\d{4}$"
+      }
+    },
+    {
+      "name": "email",
+      "label": "Email",
+      "type": "text",
+      "placeholder": "Enter your email address",
+      "required": false,
+      "validation": {
+        "pattern": "^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$"
+      }
+    },
+    {
+      "name": "medicalConditions",
+      "label": "Medical Conditions",
+      "type": "textarea",
+      "placeholder": "List any existing medical conditions",
+      "required": false,
+      "validation": {
+        "required": false
+      }
+    },
+    {
+      "name": "allergies",
+      "label": "Allergies",
+      "type": "textarea",
+      "placeholder": "List any allergies",
+      "required": false,
+      "validation": {
+        "required": false
+      }
+    },
+    {
+      "name": "insuranceProvider",
+      "label": "Insurance Provider",
+      "type": "text",
+      "placeholder": "Enter your insurance provider",
+      "required": false,
+      "validation": {
+        "required": false
+      }
+    },
+    {
+      "name": "insurancePolicyNumber",
+      "label": "Policy Number",
+      "type": "text",
+      "placeholder": "Enter your policy number",
+      "required": false,
+      "validation": {
+        "required": false
+      }
+    },
+    {
+      "name": "smoker",
+      "label": "Do you smoke?",
+      "type": "radio",
+      "options": [
+        "Yes",
+        "No"
+      ],
+      "required": true,
+      "validation": {
+        "required": true
+      }
+    }
+  ],
+  "id": "a1127d63d6e0d1865515e4da9c5b9830",
+  "prompt": "Create a patient registration form with personal details, medical history, and insurance information",
+  "createdAt": "2025-04-07T06:53:14.733Z"
+}

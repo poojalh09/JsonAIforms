@@ -1,0 +1,131 @@
+{
+  "title": "Medication Order Form",
+  "layout": "vertical",
+  "fields": [
+    {
+      "name": "patientName",
+      "label": "Patient Name",
+      "type": "text",
+      "placeholder": "Enter patient's full name",
+      "required": true,
+      "validation": {
+        "required": true,
+        "pattern": "^[a-zA-Z\\s]+$",
+        "min": "2"
+      }
+    },
+    {
+      "name": "medicationName",
+      "label": "Medication Name",
+      "type": "text",
+      "placeholder": "Enter medication name",
+      "required": true,
+      "validation": {
+        "required": true
+      }
+    },
+    {
+      "name": "dosage",
+      "label": "Dosage (mg)",
+      "type": "text",
+      "placeholder": "Enter dosage in mg",
+      "required": true,
+      "validation": {
+        "required": true,
+        "pattern": "^[0-9]+(\\.[0-9]+)?$",
+        "min": "0.1"
+      }
+    },
+    {
+      "name": "routeOfAdministration",
+      "label": "Route of Administration",
+      "type": "select",
+      "required": true,
+      "options": [
+        "Oral",
+        "Intravenous (IV)",
+        "Intramuscular (IM)",
+        "Subcutaneous (SC)",
+        "Topical",
+        "Inhalation"
+      ],
+      "validation": {
+        "required": true
+      }
+    },
+    {
+      "name": "frequency",
+      "label": "Frequency",
+      "type": "select",
+      "required": true,
+      "options": [
+        "Once Daily",
+        "Twice Daily",
+        "Three Times Daily",
+        "Four Times Daily",
+        "Every Other Day",
+        "As Needed (PRN)"
+      ],
+      "validation": {
+        "required": true
+      }
+    },
+    {
+      "name": "prnInstructions",
+      "label": "PRN Instructions (if applicable)",
+      "type": "textarea",
+      "placeholder": "Enter specific instructions for PRN use",
+      "required": false,
+      "validation": {
+        "required": false
+      }
+    },
+    {
+      "name": "duration",
+      "label": "Duration (days)",
+      "type": "text",
+      "placeholder": "Enter duration in days",
+      "required": false,
+      "validation": {
+        "pattern": "^[0-9]+$",
+        "min": "1"
+      }
+    },
+    {
+      "name": "administrationInstructions",
+      "label": "Administration Instructions",
+      "type": "textarea",
+      "placeholder": "Enter specific administration instructions",
+      "required": true,
+      "validation": {
+        "required": true
+      }
+    },
+    {
+      "name": "prescriberName",
+      "label": "Prescriber Name",
+      "type": "text",
+      "placeholder": "Enter prescriber's full name",
+      "required": true,
+      "validation": {
+        "required": true,
+        "pattern": "^[a-zA-Z\\s]+$",
+        "min": "2"
+      }
+    },
+    {
+      "name": "dateOrdered",
+      "label": "Date Ordered",
+      "type": "text",
+      "placeholder": "YYYY-MM-DD",
+      "required": true,
+      "validation": {
+        "required": true,
+        "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
+      }
+    }
+  ],
+  "id": "548d9958bab94e83a5fae09de4c6f836",
+  "prompt": "Design a medication order form with dosage options and administration instructions",
+  "createdAt": "2025-05-27T09:40:36.411Z"
+}

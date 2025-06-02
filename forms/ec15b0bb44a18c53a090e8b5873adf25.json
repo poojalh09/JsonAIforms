@@ -1,0 +1,125 @@
+{
+  "title": "Medication Order Form",
+  "layout": "vertical",
+  "fields": [
+    {
+      "name": "patientName",
+      "label": "Patient Name",
+      "type": "text",
+      "placeholder": "Enter patient's full name",
+      "required": true,
+      "validation": {
+        "required": true,
+        "pattern": "^[a-zA-Z\\s]+$",
+        "min": "2",
+        "max": "100"
+      }
+    },
+    {
+      "name": "medicationName",
+      "label": "Medication Name",
+      "type": "text",
+      "placeholder": "Enter medication name",
+      "required": true,
+      "validation": {
+        "required": true,
+        "min": "2",
+        "max": "100"
+      }
+    },
+    {
+      "name": "dosage",
+      "label": "Dosage",
+      "type": "select",
+      "options": [
+        "25mg",
+        "50mg",
+        "75mg",
+        "100mg",
+        "Other (specify)"
+      ],
+      "required": true,
+      "validation": {
+        "required": true
+      }
+    },
+    {
+      "name": "otherDosage",
+      "label": "Other Dosage (specify)",
+      "type": "text",
+      "placeholder": "Enter other dosage",
+      "required": false,
+      "validation": {
+        "pattern": "^[0-9]+(.[0-9]+)?mg$",
+        "min": "1",
+        "max": "10"
+      }
+    },
+    {
+      "name": "route",
+      "label": "Route of Administration",
+      "type": "radio",
+      "options": [
+        "Oral",
+        "IV",
+        "IM",
+        "Subcutaneous",
+        "Topical"
+      ],
+      "required": true,
+      "validation": {
+        "required": true
+      }
+    },
+    {
+      "name": "frequency",
+      "label": "Frequency",
+      "type": "text",
+      "placeholder": "e.g., Once daily, Twice daily",
+      "required": true,
+      "validation": {
+        "required": true,
+        "min": "2",
+        "max": "50"
+      }
+    },
+    {
+      "name": "duration",
+      "label": "Duration",
+      "type": "text",
+      "placeholder": "e.g., 7 days, 2 weeks",
+      "required": true,
+      "validation": {
+        "required": true,
+        "min": "1",
+        "max": "50"
+      }
+    },
+    {
+      "name": "administrationInstructions",
+      "label": "Administration Instructions",
+      "type": "textarea",
+      "placeholder": "Enter specific instructions for administration",
+      "required": false,
+      "validation": {
+        "max": "500"
+      }
+    },
+    {
+      "name": "prescriberName",
+      "label": "Prescriber Name",
+      "type": "text",
+      "placeholder": "Enter prescriber's full name",
+      "required": true,
+      "validation": {
+        "required": true,
+        "pattern": "^[a-zA-Z\\s]+$",
+        "min": "2",
+        "max": "100"
+      }
+    }
+  ],
+  "id": "ec15b0bb44a18c53a090e8b5873adf25",
+  "prompt": "Design a medication order form with dosage options and administration instructions",
+  "createdAt": "2025-04-24T09:48:01.162Z"
+}

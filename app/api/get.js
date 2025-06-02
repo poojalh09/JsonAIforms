@@ -2,7 +2,7 @@ import fs from 'fs';
 import path from 'path';
 import { NextResponse } from 'next/server';
 
-export async function GET() {
+export async function GET(request) {
     // Directory where form definitions are stored
     const formsDirectory = path.join(process.cwd(), 'forms');
 
@@ -10,7 +10,14 @@ export async function GET() {
         // Ensure forms directory exists
         if (!fs.existsSync(formsDirectory)) {
             fs.mkdirSync(formsDirectory, { recursive: true });
-            return NextResponse.json([], { status: 200 });
+            return NextResponse.json([], { 
+                status: 200,
+                headers: {
+                    'Access-Control-Allow-Origin': '*',
+                    'Access-Control-Allow-Methods': 'GET',
+                    'Access-Control-Allow-Headers': 'Content-Type'
+                }
+            });
         }
 
         // Read all JSON files
@@ -34,13 +41,38 @@ export async function GET() {
             })
             .filter(form => form !== null);
 
-        return NextResponse.json(formFiles, { status: 200 });
+        return NextResponse.json(formFiles, { 
+            status: 200,
+            headers: {
+                'Access-Control-Allow-Origin': '*',
+                'Access-Control-Allow-Methods': 'GET',
+                'Access-Control-Allow-Headers': 'Content-Type'
+            }
+        });
 
     } catch (error) {
         console.error('Error retrieving forms:', error);
         return NextResponse.json({ 
             error: "Failed to retrieve forms", 
             details: error.message 
-        }, { status: 500 });
+        }, { 
+            status: 500,
+            headers: {
+                'Access-Control-Allow-Origin': '*',
+                'Access-Control-Allow-Methods': 'GET',
+                'Access-Control-Allow-Headers': 'Content-Type'
+            }
+        });
     }
+}
+
+export async function OPTIONS() {
+    return new NextResponse(null, {
+        status: 200,
+        headers: {
+            'Access-Control-Allow-Origin': '*',
+            'Access-Control-Allow-Methods': 'GET',
+            'Access-Control-Allow-Headers': 'Content-Type'
+        }
+    });
 }

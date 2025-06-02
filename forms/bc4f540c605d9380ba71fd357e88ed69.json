@@ -1,0 +1,146 @@
+{
+  "title": "Research Study Participant Form",
+  "layout": "vertical",
+  "fields": [
+    {
+      "name": "firstName",
+      "label": "First Name",
+      "type": "text",
+      "placeholder": "Enter your first name",
+      "required": true,
+      "validation": {
+        "required": true,
+        "pattern": "^[A-Za-z]+$",
+        "min": "2",
+        "max": "50"
+      }
+    },
+    {
+      "name": "lastName",
+      "label": "Last Name",
+      "type": "text",
+      "placeholder": "Enter your last name",
+      "required": true,
+      "validation": {
+        "required": true,
+        "pattern": "^[A-Za-z]+$",
+        "min": "2",
+        "max": "50"
+      }
+    },
+    {
+      "name": "dateOfBirth",
+      "label": "Date of Birth",
+      "type": "text",
+      "placeholder": "MM/DD/YYYY",
+      "required": true,
+      "validation": {
+        "required": true,
+        "pattern": "^(0[1-9]|1[0-2])/(0[1-9]|[12][0-9]|3[01])/(19|20)\\d{2}$"
+      }
+    },
+    {
+      "name": "email",
+      "label": "Email Address",
+      "type": "text",
+      "placeholder": "Enter your email address",
+      "required": true,
+      "validation": {
+        "required": true,
+        "pattern": "^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$"
+      }
+    },
+    {
+      "name": "gender",
+      "label": "Gender",
+      "type": "select",
+      "required": true,
+      "options": [
+        "Male",
+        "Female",
+        "Other",
+        "Prefer not to say"
+      ],
+      "validation": {
+        "required": true
+      }
+    },
+    {
+      "name": "race",
+      "label": "Race/Ethnicity",
+      "type": "select",
+      "required": true,
+      "options": [
+        "White",
+        "Black or African American",
+        "Asian",
+        "Native American or American Indian",
+        "Pacific Islander",
+        "Hispanic or Latino",
+        "Other",
+        "Prefer not to say"
+      ],
+      "validation": {
+        "required": true
+      }
+    },
+    {
+      "name": "educationLevel",
+      "label": "Highest Level of Education",
+      "type": "select",
+      "required": true,
+      "options": [
+        "Less than High School",
+        "High School Diploma",
+        "Some College",
+        "Associate's Degree",
+        "Bachelor's Degree",
+        "Master's Degree",
+        "Doctorate",
+        "Professional Degree"
+      ],
+      "validation": {
+        "required": true
+      }
+    },
+    {
+      "name": "studySpecificQuestion1",
+      "label": "How many hours per week do you exercise?",
+      "type": "slider",
+      "required": true,
+      "min": "0",
+      "max": "20",
+      "validation": {
+        "required": true
+      }
+    },
+    {
+      "name": "studySpecificQuestion2",
+      "label": "What are your primary motivations for participating in this study? (Select all that apply)",
+      "type": "checkbox",
+      "required": true,
+      "options": [
+        "Financial compensation",
+        "Personal health benefits",
+        "Contribute to scientific knowledge",
+        "Other"
+      ],
+      "validation": {
+        "required": true
+      }
+    },
+    {
+      "name": "comments",
+      "label": "Any additional comments or questions?",
+      "type": "textarea",
+      "placeholder": "Enter your comments here",
+      "required": false,
+      "validation": {
+        "required": false
+      }
+    }
+  ],
+  "id": "bc4f540c605d9380ba71fd357e88ed69",
+  "prompt": "Build a research study participant form with demographic questions and study-specific fields",
+  "createdAt": "2025-04-07T09:37:23.896Z"
+}

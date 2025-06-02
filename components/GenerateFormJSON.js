@@ -214,10 +214,7 @@ const GenerateJSONForForm = () => {
   const handleCopyUrlToClipboard = () => {
     navigator.clipboard.writeText(formUrl);
     setIsCopied(prev => ({ ...prev, url: true }));
-    toast({
-      title: "URL copied to clipboard!",
-      description: "You can now paste the URL where needed."
-    });
+    toast("URL copied to clipboard!");
     
     setTimeout(() => {
       setIsCopied(prev => ({ ...prev, url: false }));
@@ -237,10 +234,7 @@ const GenerateJSONForForm = () => {
 
     navigator.clipboard.writeText(embedCode);
     setIsCopied(prev => ({ ...prev, embedCode: true }));
-    toast({
-      title: "Embed code copied to clipboard!",
-      description: "You can now paste the embed code into your HTML."
-    });
+    toast("Embed code copied to clipboard!");
     
     setTimeout(() => {
       setIsCopied(prev => ({ ...prev, embedCode: false }));
@@ -267,17 +261,10 @@ const GenerateJSONForForm = () => {
         const iframeUrl = `${window.location.origin}/form/${id}`;
         setFormUrl(iframeUrl);
         
-        toast({
-          title: "Form Generated Successfully!",
-          description: "Your form is now ready to be embedded.",
-        });
+        toast("Form Generated Successfully! Your form is now ready to be embedded.");
     } catch (error) {
         console.error("Error generating form:", error);
-        toast({
-          title: "Error",
-          description: "Failed to generate form JSON.",
-          variant: "destructive",
-        });
+        toast("Error: Failed to generate form JSON.");
     } finally {
         setIsGenerating(false);
     }
@@ -291,10 +278,7 @@ const GenerateJSONForForm = () => {
       required: false, 
       position: 'col-span-1'
     }]);
-    toast({
-      title: "Field Added",
-      description: "A new field has been added to your form.",
-    });
+    toast("A new field has been added to your form.");
   };
 
   const handleChange = (index, event) => {
@@ -313,11 +297,7 @@ const GenerateJSONForForm = () => {
     const newColumns = [...columns];
     newColumns.splice(index, 1);
     setColumns(newColumns);
-    toast({
-      title: "Field Removed",
-      description: "The field has been removed from your form.",
-      variant: "destructive",
-    });
+    toast("The field has been removed from your form.");
   };
 
   const handleOptionChange = (colIndex, optIndex, event) => {

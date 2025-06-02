@@ -2,7 +2,7 @@
 "use client";
 
 import { useForm } from "react-hook-form";
-import { useState } from "react";
+import { useState, useMemo } from "react";
 import { format } from "date-fns";
 import { cn } from "@/lib/utils";
 import { Calendar as CalendarIcon, X, Plus, Search } from "lucide-react";
@@ -36,20 +36,48 @@ const selectTriggerStyles = "bg-gray-50 hover:bg-gray-100 focus:bg-white transit
 const buttonOutlineStyles = "bg-gray-50 hover:bg-gray-100 focus:bg-white transition-colors duration-200";
 const radioStyles = "data-[state=checked]:before:translate-x-[0.3125rem] data-[state=checked]:before:translate-y-[0.3125rem]";
 
-export default function DynamicForm({ formDefinition }) {
-  if (!formDefinition) {
-    return <p className="text-center text-gray-500">Loading form...</p>;
-}
-  const form = useForm({
-    defaultValues: formDefinition.fields.reduce((acc, field) => {
-      acc[field.name] = field.type === "checkbox" ? [] : "";
-      return acc;
-    }, {}),
+// Helper function to generate unique field names
+const generateUniqueFieldNames = (fields) => {
+  const seenFields = new Set();
+  return fields.map(field => {
+    let uniqueName = field.name;
+    let counter = 1;
+    while (seenFields.has(uniqueName)) {
+      uniqueName = `${field.name}_${counter++}`;
+    }
+    seenFields.add(uniqueName);
+    return { ...field, _uniqueName: uniqueName };
   });
+};
 
+export default function DynamicForm({ formDefinition }) {
+  // Initialize all state and form hooks at the top level
   const [tagFields, setTagFields] = useState({});
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [showSuccess, setShowSuccess] = useState(false);
+  
+    // Generate default values based on formDefinition
+  const defaultValues = useMemo(() => {
+    if (!formDefinition) return {};
+    const fields = generateUniqueFieldNames(formDefinition.fields);
+    return fields.reduce((acc, field) => {
+      acc[field._uniqueName] = field.type === "checkbox" ? [] : "";
+      return acc;
+    }, {});
+  }, [formDefinition]);
+
+  // Initialize form with default values
+  const form = useForm({ defaultValues });
+  
+  // Generate fields with unique names for rendering
+  const fieldsWithUniqueNames = useMemo(() => {
+    return formDefinition ? generateUniqueFieldNames(formDefinition.fields) : [];
+  }, [formDefinition]);
+  
+  // Handle loading state
+  if (!formDefinition) {
+    return <p className="text-center text-gray-500">Loading form...</p>;
+  }
 
   const onSubmit = async (data) => {
     setIsSubmitting(true);
@@ -112,11 +140,11 @@ export default function DynamicForm({ formDefinition }) {
             <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
               <ScrollArea className="h-[60vh] pr-4">
                 <div className={`grid ${formDefinition.layout} gap-6`}>
-                  {formDefinition.fields.map((field) => (
-                    <div key={field.name} className={field.position}>
+                  {fieldsWithUniqueNames.map((field) => (
+                    <div key={field._uniqueName} className={field.position}>
                       <FormField
                         control={form.control}
-                        name={field.name}
+                        name={field._uniqueName}
                         rules={{
                           validate: (value) =>
                             !field.required || (value?.length > 0) || `${field.label} is required`,
@@ -199,10 +227,10 @@ export default function DynamicForm({ formDefinition }) {
                                           <div key={option} className="flex items-center space-x-3">
                                             <RadioGroupItem
                                               value={option}
-                                              id={`${field.name}-${option}`}
+                                              id={`${field._uniqueName}-${option}`}
                                               className={`w-4 h-4 before:w-2 before:h-2 before:content-[''] ${radioStyles}`}
                                             />
-                                            <FormLabel htmlFor={`${field.name}-${option}`}>
+                                            <FormLabel htmlFor={`${field._uniqueName}-${option}`}>
                                               {option}
                                             </FormLabel>
                                           </div>
@@ -214,11 +242,11 @@ export default function DynamicForm({ formDefinition }) {
                                           <div key={option} className="flex items-center space-x-3">
                                             <Checkbox
                                               onCheckedChange={(checked) => {
-                                              const currentValues = form.getValues(field.name) || [];
+                                              const currentValues = form.getValues(field._uniqueName) || [];
                                               if (checked) {
-                                                  form.setValue(field.name, [...currentValues, option]); // Add new option
+                                                  form.setValue(field._uniqueName, [...currentValues, option]); // Add new option
                                                    } else {
-                                                    form.setValue(field.name, currentValues.filter((item) => item !== option)); // Remove option
+                                                    form.setValue(field._uniqueName, currentValues.filter((item) => item !== option)); // Remove option
                                                     }
                                                   }}
                                                 className="bg-gray-50 border-gray-300"
@@ -282,13 +310,13 @@ export default function DynamicForm({ formDefinition }) {
                                           <Input
                                             type="text"
                                             placeholder="Type and press Enter..."
-                                            onKeyDown={(e) => handleTagInput(e, field.name)}
+                                            onKeyDown={(e) => handleTagInput(e, field._uniqueName)}
                                             className={inputStyles}
                                           />
                                           
                                         </div>
                                         <div className="flex flex-wrap gap-2">
-                                          {(tagFields[field.name] || []).map((tag, index) => (
+                                          {(tagFields[field._uniqueName] || []).map((tag, index) => (
                                             <Badge
                                               key={index}
                                               variant="secondary"
@@ -297,7 +325,7 @@ export default function DynamicForm({ formDefinition }) {
                                               <span>{tag}</span>
                                               <button
                                                 type="button"
-                                                onClick={() => removeTag(index, field.name)}
+                                                onClick={() => removeTag(index, field._uniqueName)}
                                                 className="text-gray-500 hover:text-gray-700"
                                               >
                                                 <X className="h-3 w-3" />
@@ -352,3 +380,117 @@ export default function DynamicForm({ formDefinition }) {
     </div>
   );
 }
+
+
+// export default function DynamicForm({ formDefinition }) {
+//   if (!formDefinition) {
+//     return <p className="text-center text-gray-500">Loading form...</p>;
+//   }
+
+//   const form = useForm({
+//     defaultValues: formDefinition.fields.reduce((acc, field) => {
+//       acc[field.name] = field.type === "checkbox" ? [] : "";
+//       return acc;
+//     }, {}),
+//   });
+
+//   const [tagFields, setTagFields] = useState({});
+//   const [isSubmitting, setIsSubmitting] = useState(false);
+//   const [showSuccess, setShowSuccess] = useState(false);
+
+//   const onSubmit = async (data) => {
+//     setIsSubmitting(true);
+//     try {
+//       await new Promise((resolve) => setTimeout(resolve, 1000)); // Simulate API call
+//       console.log("Form Data Submitted:", { ...data, tagFields });
+//       setShowSuccess(true);
+//       setTimeout(() => setShowSuccess(false), 3000);
+//     } finally {
+//       setIsSubmitting(false);
+//     }
+//   };
+
+//   const handleTagInput = (e, fieldName) => {
+//     if (e.key === "Enter" && e.target.value.trim() !== "") {
+//       const newTags = [...(tagFields[fieldName] || []), e.target.value.trim()];
+//       setTagFields((prev) => ({
+//         ...prev,
+//         [fieldName]: newTags,
+//       }));
+
+//       form.setValue(fieldName, newTags);
+//       form.trigger(fieldName);
+
+//       e.target.value = "";
+//       e.preventDefault();
+//     }
+//   };
+
+//   const removeTag = (index, fieldName) => {
+//     const newTags = tagFields[fieldName].filter((_, i) => i !== index);
+//     setTagFields((prev) => ({
+//       ...prev,
+//       [fieldName]: newTags,
+//     }));
+
+//     form.setValue(fieldName, newTags);
+//     form.trigger(fieldName);
+//   };
+
+//   return (
+//     <div className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100 p-6">
+//       <Card className="max-w-2xl mx-auto shadow-lg">
+//         <CardHeader>
+//           <CardTitle className="text-3xl font-bold bg-gradient-to-r from-red-600 to-red-400 bg-clip-text text-transparent">
+//             {formDefinition.title}
+//           </CardTitle>
+//           {formDefinition.description && (
+//             <CardDescription>
+//               {typeof formDefinition.description === "string"
+//                 ? formDefinition.description
+//                 : JSON.stringify(formDefinition.description)}
+//             </CardDescription>
+//           )}
+//         </CardHeader>
+//         <CardContent>
+//           {showSuccess && (
+//             <Alert className="mb-6 bg-green-50 text-green-700 border-green-200">
+//               <AlertDescription>Form submitted successfully!</AlertDescription>
+//             </Alert>
+//           )}
+
+//           <Form {...form}>
+//             <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
+//               <ScrollArea className="h-[60vh] pr-4">
+//                 <div className={`grid ${formDefinition.layout} gap-6`}>
+//                   {formDefinition.fields.map((field) => (
+//                     <div key={field.name} className={field.position}>
+//                       {/* Render field logic */}
+//                     </div>
+//                   ))}
+//                 </div>
+//               </ScrollArea>
+
+//               <div className="sticky bottom-0 pt-6 bg-white border-t">
+//                 <Button
+//                   type="submit"
+//                   className="w-full bg-red-600 hover:bg-red-500 text-white font-semibold py-2 rounded-lg"
+//                   disabled={isSubmitting}
+//                 >
+//                   {isSubmitting ? (
+//                     <div className="flex items-center space-x-2">
+//                       <div className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin" />
+//                       <span>Submitting...</span>
+//                     </div>
+//                   ) : (
+//                     "Submit"
+//                   )}
+//                 </Button>
+//               </div>
+//             </form>
+//           </Form>
+//         </CardContent>
+//       </Card>
+//     </div>
+//   );
+// }

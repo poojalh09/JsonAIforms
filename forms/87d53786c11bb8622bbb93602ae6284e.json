@@ -1,0 +1,115 @@
+{
+  "title": "First Date Planner - Bengaluru",
+  "layout": "vertical",
+  "fields": [
+    {
+      "name": "girlName",
+      "label": "Girl's Name",
+      "type": "text",
+      "placeholder": "Enter her name",
+      "required": true,
+      "validation": {
+        "required": true,
+        "pattern": "^[a-zA-Z\\s]+$",
+        "min": "2",
+        "max": "50"
+      }
+    },
+    {
+      "name": "dateIdea",
+      "label": "Date Idea",
+      "type": "select",
+      "options": [
+        "Coffee Shop",
+        "Restaurant",
+        "Park",
+        "Museum",
+        "Movie",
+        "Other"
+      ],
+      "required": true,
+      "validation": {
+        "required": true
+      }
+    },
+    {
+      "name": "otherDateIdea",
+      "label": "Specify Other Date Idea",
+      "type": "text",
+      "placeholder": "Describe your alternative date idea",
+      "required": false,
+      "validation": {
+        "pattern": "^[a-zA-Z0-9\\s.,?!]+$",
+        "max": "200"
+      }
+    },
+    {
+      "name": "cuisinePreference",
+      "label": "Cuisine Preference (if applicable)",
+      "type": "select",
+      "options": [
+        "None",
+        "Indian",
+        "Italian",
+        "Chinese",
+        "Continental",
+        "Other"
+      ],
+      "required": false,
+      "validation": {
+        "required": false
+      }
+    },
+    {
+      "name": "otherCuisine",
+      "label": "Specify Other Cuisine",
+      "type": "text",
+      "placeholder": "Describe other cuisine preference",
+      "required": false,
+      "validation": {
+        "pattern": "^[a-zA-Z0-9\\s.,?!]+$",
+        "max": "200"
+      }
+    },
+    {
+      "name": "preferredTime",
+      "label": "Preferred Time",
+      "type": "select",
+      "options": [
+        "Morning",
+        "Afternoon",
+        "Evening"
+      ],
+      "required": true,
+      "validation": {
+        "required": true
+      }
+    },
+    {
+      "name": "budget",
+      "label": "Budget (approximate)",
+      "type": "slider",
+      "min": "100",
+      "max": "2000",
+      "required": true,
+      "validation": {
+        "required": true,
+        "min": "100",
+        "max": "2000"
+      }
+    },
+    {
+      "name": "notes",
+      "label": "Additional Notes",
+      "type": "textarea",
+      "placeholder": "Any additional information or preferences?",
+      "required": false,
+      "validation": {
+        "max": "500"
+      }
+    }
+  ],
+  "id": "87d53786c11bb8622bbb93602ae6284e",
+  "prompt": "create a form for the first date in Bengaluru for asking a girl",
+  "createdAt": "2025-04-08T11:27:15.540Z"
+}

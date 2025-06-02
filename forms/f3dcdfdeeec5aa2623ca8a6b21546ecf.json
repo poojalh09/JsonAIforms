@@ -1,0 +1,79 @@
+{
+  "title": "First Date Planner",
+  "layout": "vertical",
+  "fields": [
+    {
+      "name": "dateIdea",
+      "label": "Date Idea",
+      "type": "textarea",
+      "placeholder": "Describe your first date idea",
+      "required": true,
+      "validation": {
+        "required": true,
+        "min": "10",
+        "max": "500"
+      }
+    },
+    {
+      "name": "dateLocation",
+      "label": "Location",
+      "type": "text",
+      "placeholder": "Enter the location of the date",
+      "required": true,
+      "validation": {
+        "required": true,
+        "min": "3",
+        "max": "100"
+      }
+    },
+    {
+      "name": "dateType",
+      "label": "Date Type",
+      "type": "select",
+      "options": [
+        "Casual",
+        "Romantic",
+        "Adventurous",
+        "Creative",
+        "Relaxing"
+      ],
+      "required": true,
+      "validation": {
+        "required": true
+      }
+    },
+    {
+      "name": "budget",
+      "label": "Budget",
+      "type": "slider",
+      "min": "0",
+      "max": "200",
+      "required": false,
+      "validation": {
+        "required": false
+      }
+    },
+    {
+      "name": "notes",
+      "label": "Additional Notes",
+      "type": "textarea",
+      "placeholder": "Any extra information?",
+      "required": false,
+      "validation": {
+        "required": false
+      }
+    },
+    {
+      "name": "isSurprise",
+      "label": "Is it a surprise?",
+      "type": "switch",
+      "required": false,
+      "validation": {
+        "required": false
+      }
+    }
+  ],
+  "id": "f3dcdfdeeec5aa2623ca8a6b21546ecf",
+  "prompt": "create a form for the first date",
+  "createdAt": "2025-04-08T11:26:38.052Z"
+}

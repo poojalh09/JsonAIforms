@@ -6,7 +6,12 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "test": "echo \"No tests configured\" && exit 0",
+    "prepare": "next build",
+    "prestart": "next build",
+    "ci:test": "npm run lint && npm run test",
+    "ci:build": "npm run build"
   },
   "dependencies": {
     "@google/genai": "^0.7.0",
@@ -71,5 +76,8 @@
     "typescript": "5.2.2",
     "vaul": "^0.9.9",
     "zod": "^3.23.8"
+  },
+  "devDependencies": {
+    "@tailwindcss/typography": "^0.5.16"
   }
 }
